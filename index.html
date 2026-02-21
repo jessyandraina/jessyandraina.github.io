@@ -11,64 +11,69 @@
             margin: 0;
             background-color: #f7f9fc;
             color: #1a1a1a;
+            line-height: 1.6;
         }
 
         header {
             background-color: #111827;
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 32px;
+            font-size: 34px;
+            font-weight: 600;
         }
 
         header p {
-            margin-top: 10px;
+            margin-top: 12px;
             font-size: 18px;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         section {
             max-width: 900px;
-            margin: 60px auto;
+            margin: 70px auto;
             padding: 0 20px;
         }
 
         h2 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 2px solid #e5e7eb;
             padding-bottom: 10px;
+            font-weight: 600;
         }
 
         .project {
             background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-3px);
         }
 
         .project h3 {
             margin-top: 0;
+            font-size: 20px;
         }
 
         .project a {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 12px;
             color: #2563eb;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #111827;
-            color: white;
-            margin-top: 60px;
+        .project a:hover {
+            text-decoration: underline;
         }
 
     </style>
@@ -85,14 +90,20 @@
     <h2>À propos</h2>
     <p>
         Étudiante finissante en génie informatique à l'UQAC, je développe des applications structurées
-        en mettant l'accent sur l'architecture logicielle, la gestion des données, et la conception de
-        systèmes mainteables.
-        
-        Actuellement, je suis en train d'appliquer mes connaissances dans un projet personnel orienté
-        vers la conception d'un site web avec système de réservation, afin de répondre à un besoin réel.
+        en mettant l'accent sur l'architecture logicielle, la gestion des données et la conception de
+        systèmes maintenables.
+    </p>
 
-        Je souhaite intégrer un stage où je pourrai approfondir mes compétences, évoluer dans un environnement
-        professionnel structuré et contribuer à des solutions logicielles concrètes.
+    <p>
+        Actuellement, j'applique mes connaissances dans un projet personnel orienté
+        vers la conception d'un site web intégrant un système de réservation, afin
+        de répondre à un besoin réel.
+    </p>
+
+    <p>
+        Je souhaite intégrer un stage où je pourrai approfondir mes compétences,
+        évoluer dans un environnement professionnel structuré et contribuer
+        activement au développement de solutions logicielles.
     </p>
 </section>
 
@@ -102,30 +113,28 @@
     <div class="project">
         <h3>Protocole RDO – Réseaux (Java, TCP)</h3>
         <p>Implémentation d’un protocole client–serveur de transfert de fichiers avec gestion de redirection entre serveurs pairs.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-reseaux-rdo" target="_blank">Voir sur GitHub →</a>
+        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-reseaux-rdo" target="_blank">Voir le projet →</a>
     </div>
 
     <div class="project">
         <h3>Comparateur de prix d’hôtels – Architecture logicielle</h3>
         <p>Application web structurée avec séparation backend/frontend et architecture modulaire.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-architecture-comparateur-hotels" target="_blank">Voir sur GitHub →</a>
+        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-architecture-comparateur-hotels" target="_blank">Voir le projet →</a>
     </div>
 
     <div class="project">
         <h3>Système de gestion d’événements – Bases de données</h3>
         <p>Conception d’une base relationnelle avec modélisation, contraintes d’intégrité et requêtes SQL avancées.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-bases-de-donnees-gestion-evenements" target="_blank">Voir sur GitHub →</a>
+        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-bases-de-donnees-gestion-evenements" target="_blank">Voir le projet →</a>
     </div>
 
     <div class="project">
         <h3>Outil de gestion de projets et suivi du temps</h3>
         <p>Application Java combinant gestion hiérarchique de projets et suivi des heures, développée en sprints.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-outil-gestion-projets" target="_blank">Voir sur GitHub →</a>
+        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-outil-gestion-projets" target="_blank">Voir le projet →</a>
     </div>
 
 </section>
-
-</footer>
 
 </body>
 </html>
