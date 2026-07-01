@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="Portfolio d’Antsanirina Jessy Andrianandraina, étudiante finissante en génie informatique à l’UQAC."
+        content="Portfolio d’Antsanirina Jessy Andrianandraina, finissante en génie informatique à l’UQAC."
     >
 
     <style>
@@ -57,7 +57,7 @@
                     var(--teal-dark) 100%
                 );
             color: var(--white);
-            padding: 95px 24px 85px;
+            padding: 85px 24px 80px;
         }
 
         header::before {
@@ -85,7 +85,7 @@
         .header-content {
             position: relative;
             z-index: 1;
-            max-width: 950px;
+            max-width: 1120px;
             margin: 0 auto;
         }
 
@@ -103,18 +103,18 @@
         }
 
         header h1 {
-            max-width: 760px;
             margin: 0;
-            font-size: clamp(36px, 6vw, 58px);
+            font-size: clamp(38px, 4.7vw, 62px);
             line-height: 1.12;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
+            white-space: nowrap;
         }
 
         .header-subtitle {
-            max-width: 720px;
+            max-width: 790px;
             margin: 22px 0 0;
-            color: rgba(255, 255, 255, 0.84);
+            color: rgba(255, 255, 255, 0.87);
             font-size: 19px;
         }
 
@@ -128,14 +128,18 @@
         .header-link {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             padding: 11px 18px;
             border: 1px solid rgba(255, 255, 255, 0.28);
             border-radius: 8px;
+            background-color: transparent;
             color: var(--white);
             text-decoration: none;
+            font-family: inherit;
             font-size: 15px;
             font-weight: 700;
+            cursor: pointer;
             transition:
                 background-color 0.2s ease,
                 transform 0.2s ease,
@@ -324,6 +328,66 @@
             transform: translateX(4px);
         }
 
+        .contact-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(10, 18, 31, 0.7);
+        }
+
+        .contact-modal.open {
+            display: flex;
+        }
+
+        .contact-box {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            padding: 34px;
+            border-radius: 16px;
+            background-color: var(--white);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+        }
+
+        .contact-box h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            margin: 0 0 20px;
+            color: var(--muted);
+        }
+
+        .contact-item {
+            display: block;
+            margin-top: 12px;
+            padding: 14px 16px;
+            border-radius: 9px;
+            background-color: var(--soft-teal);
+            color: var(--teal-dark);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-item:hover {
+            text-decoration: underline;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            border: 0;
+            background: transparent;
+            color: var(--navy);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
         footer {
             padding: 35px 24px;
             background-color: var(--navy);
@@ -342,9 +406,21 @@
             text-decoration: underline;
         }
 
+        @media (max-width: 1100px) {
+            header h1 {
+                white-space: normal;
+                max-width: 850px;
+            }
+        }
+
         @media (max-width: 760px) {
             header {
-                padding: 75px 20px 65px;
+                padding: 70px 20px 65px;
+            }
+
+            header h1 {
+                font-size: 39px;
+                white-space: normal;
             }
 
             .header-subtitle {
@@ -374,31 +450,37 @@
 
 <header>
     <div class="header-content">
-        <span class="eyebrow">Portfolio en génie informatique</span>
+
+        <span class="eyebrow">
+            Apprendre • Concevoir • Améliorer
+        </span>
 
         <h1>Antsanirina Jessy Andrianandraina</h1>
 
         <p class="header-subtitle">
-            Étudiante finissante à l’UQAC, intéressée par la conception de solutions
-            utiles, les systèmes informatiques, les données et l’amélioration des processus.
+            J’aime apprendre en construisant et transformer des besoins réels
+            en solutions claires, utiles et fonctionnelles.
         </p>
 
         <div class="header-links">
-            <a
+
+            <button
                 class="header-link"
-                href="mailto:jessyy.andraina@gmail.com"
+                type="button"
+                onclick="ouvrirContact()"
             >
                 Me contacter
-            </a>
+            </button>
 
             <a
                 class="header-link"
-                href="https://github.com/jessyandraina"
+                href="https://github.com/jessyandraina/projets-academiques"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Mon profil GitHub
+                Voir mes projets GitHub
             </a>
+
         </div>
     </div>
 </header>
@@ -412,6 +494,7 @@
         </div>
 
         <div class="about-card">
+
             <p class="about-highlight">
                 Ce que j’apprécie le plus en informatique, c’est le moment où une notion
                 apprise en cours devient une solution réellement utile.
@@ -442,6 +525,7 @@
                 futurs utilisateurs et de prendre en charge les différentes étapes de
                 conception.
             </div>
+
         </div>
     </section>
 
@@ -454,29 +538,31 @@
         <div class="projects-grid">
 
             <article class="project">
+
                 <span class="project-tag">Développement mobile</span>
 
                 <h3>StudyWisely – Application Android</h3>
 
                 <p>
-                    Conception et développement d’une application de gestion de routines
-                    de révision avec Kotlin et Jetpack Compose, incluant la création des
-                    interfaces sur Figma, l’affichage dynamique des données et les tests
-                    fonctionnels.
+                    Application mobile de gestion de routines de révision intégrant
+                    le stockage local, le calcul automatique des priorités,
+                    Google Maps et des notifications programmées.
                 </p>
 
                 <a
                     class="project-link"
-                    href="https://github.com/jessyadr/repo_8INF257_InfoMobile"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-mobile-studywisely"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <span>Consulter le projet</span>
                     <span>→</span>
                 </a>
+
             </article>
 
             <article class="project">
+
                 <span class="project-tag">Réseaux</span>
 
                 <h3>Protocole RDO – Java et TCP</h3>
@@ -489,16 +575,18 @@
 
                 <a
                     class="project-link"
-                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-reseaux-rdo"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-r%C3%A9seaux-rdo"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <span>Consulter le projet</span>
                     <span>→</span>
                 </a>
+
             </article>
 
             <article class="project">
+
                 <span class="project-tag">Architecture logicielle</span>
 
                 <h3>Comparateur de prix d’hôtels</h3>
@@ -511,16 +599,18 @@
 
                 <a
                     class="project-link"
-                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-architecture-comparateur-hotels"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-architecture-comparateur-h%C3%B4tels"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <span>Consulter le projet</span>
                     <span>→</span>
                 </a>
+
             </article>
 
             <article class="project">
+
                 <span class="project-tag">Bases de données</span>
 
                 <h3>Système de gestion d’événements</h3>
@@ -540,9 +630,11 @@
                     <span>Consulter le projet</span>
                     <span>→</span>
                 </a>
+
             </article>
 
             <article class="project">
+
                 <span class="project-tag">Gestion de projet</span>
 
                 <h3>Outil de gestion de projets et suivi du temps</h3>
@@ -562,12 +654,52 @@
                     <span>Consulter le projet</span>
                     <span>→</span>
                 </a>
+
             </article>
 
         </div>
     </section>
 
 </main>
+
+<div
+    class="contact-modal"
+    id="contactModal"
+    onclick="fermerSiExterieur(event)"
+>
+    <div class="contact-box">
+
+        <button
+            class="close-modal"
+            type="button"
+            aria-label="Fermer"
+            onclick="fermerContact()"
+        >
+            ×
+        </button>
+
+        <h2>Me contacter</h2>
+
+        <p>
+            Vous pouvez me joindre directement par courriel ou par téléphone.
+        </p>
+
+        <a
+            class="contact-item"
+            href="mailto:jessyy.andraina@gmail.com"
+        >
+            Courriel : jessyy.andraina@gmail.com
+        </a>
+
+        <a
+            class="contact-item"
+            href="tel:+15815743391"
+        >
+            Téléphone : (581) 574-3391
+        </a>
+
+    </div>
+</div>
 
 <footer>
     <p>
@@ -577,6 +709,28 @@
         </a>
     </p>
 </footer>
+
+<script>
+    function ouvrirContact() {
+        document.getElementById("contactModal").classList.add("open");
+    }
+
+    function fermerContact() {
+        document.getElementById("contactModal").classList.remove("open");
+    }
+
+    function fermerSiExterieur(event) {
+        if (event.target.id === "contactModal") {
+            fermerContact();
+        }
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            fermerContact();
+        }
+    });
+</script>
 
 </body>
 </html>
