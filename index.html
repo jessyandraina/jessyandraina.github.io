@@ -2,139 +2,581 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
     <title>Antsanirina Jessy Andrianandraina – Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Portfolio d’Antsanirina Jessy Andrianandraina, étudiante finissante en génie informatique à l’UQAC."
+    >
+
     <style>
+        :root {
+            --navy: #172033;
+            --navy-light: #26344f;
+            --teal: #167d78;
+            --teal-dark: #0f625e;
+            --cream: #f6f3ed;
+            --white: #ffffff;
+            --text: #202631;
+            --muted: #606a78;
+            --border: #dfe5e7;
+            --soft-teal: #e7f3f1;
+            --shadow: 0 14px 35px rgba(23, 32, 51, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f7f9fc;
-            color: #1a1a1a;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
         }
 
         header {
-            background-color: #111827;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--navy) 0%,
+                    var(--navy-light) 65%,
+                    var(--teal-dark) 100%
+                );
+            color: var(--white);
+            padding: 95px 24px 85px;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -130px;
+            right: -100px;
+            width: 380px;
+            height: 380px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -170px;
+            left: -100px;
+            width: 340px;
+            height: 340px;
+            background-color: rgba(22, 125, 120, 0.18);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         header h1 {
+            max-width: 760px;
             margin: 0;
-            font-size: 34px;
-            font-weight: 600;
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.12;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        header p {
-            margin-top: 12px;
-            font-size: 18px;
-            opacity: 0.85;
+        .header-subtitle {
+            max-width: 720px;
+            margin: 22px 0 0;
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 19px;
+        }
+
+        .header-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .header-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition:
+                background-color 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .header-link:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
         }
 
         section {
-            max-width: 900px;
-            margin: 70px auto;
-            padding: 0 20px;
+            margin-top: 75px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .section-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: var(--soft-teal);
+            color: var(--teal-dark);
+            font-weight: 700;
         }
 
         h2 {
-            margin-bottom: 25px;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 10px;
-            font-weight: 600;
+            margin: 0;
+            color: var(--navy);
+            font-size: 28px;
+            letter-spacing: -0.4px;
+        }
+
+        .about-card {
+            position: relative;
+            overflow: hidden;
+            padding: 38px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .about-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background-color: var(--teal);
+        }
+
+        .about-card p {
+            margin: 0 0 18px;
+            font-size: 17px;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-highlight {
+            color: var(--navy);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .current-projects {
+            margin-top: 24px;
+            padding: 22px 24px;
+            border-radius: 12px;
+            background-color: var(--soft-teal);
+            color: var(--navy);
+        }
+
+        .current-projects strong {
+            color: var(--teal-dark);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
         }
 
         .project {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background-color: var(--white);
+            box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
         }
 
         .project:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            border-color: rgba(22, 125, 120, 0.45);
+            box-shadow: 0 18px 40px rgba(23, 32, 51, 0.11);
+        }
+
+        .project-tag {
+            display: inline-block;
+            align-self: flex-start;
+            margin-bottom: 16px;
+            padding: 6px 11px;
+            border-radius: 999px;
+            background-color: var(--soft-teal);
+            color: var(--teal-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .project h3 {
-            margin-top: 0;
-            font-size: 20px;
+            margin: 0 0 14px;
+            color: var(--navy);
+            font-size: 21px;
+            line-height: 1.35;
         }
 
-        .project a {
-            display: inline-block;
-            margin-top: 12px;
-            color: #2563eb;
+        .project p {
+            flex-grow: 1;
+            margin: 0;
+            color: var(--muted);
+            font-size: 15.5px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+            margin-top: 24px;
+            padding: 12px 15px;
+            border: 1px solid rgba(22, 125, 120, 0.35);
+            border-radius: 9px;
+            background-color: transparent;
+            color: var(--teal-dark);
             text-decoration: none;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
         }
 
-        .project a:hover {
+        .project-link:hover {
+            background-color: var(--teal);
+            border-color: var(--teal);
+            color: var(--white);
+        }
+
+        .project-link span:last-child {
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover span:last-child {
+            transform: translateX(4px);
+        }
+
+        footer {
+            padding: 35px 24px;
+            background-color: var(--navy);
+            color: rgba(255, 255, 255, 0.72);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer a:hover {
             text-decoration: underline;
         }
 
+        @media (max-width: 760px) {
+            header {
+                padding: 75px 20px 65px;
+            }
+
+            .header-subtitle {
+                font-size: 17px;
+            }
+
+            main {
+                padding: 0 18px 60px;
+            }
+
+            section {
+                margin-top: 55px;
+            }
+
+            .about-card {
+                padding: 28px 24px 28px 30px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Antsanirina Jessy Andrianandraina</h1>
-    <p>Étudiante finissante en génie informatique – UQAC</p>
+    <div class="header-content">
+        <span class="eyebrow">Portfolio en génie informatique</span>
+
+        <h1>Antsanirina Jessy Andrianandraina</h1>
+
+        <p class="header-subtitle">
+            Étudiante finissante à l’UQAC, intéressée par la conception de solutions
+            utiles, les systèmes informatiques, les données et l’amélioration des processus.
+        </p>
+
+        <div class="header-links">
+            <a
+                class="header-link"
+                href="mailto:jessyy.andraina@gmail.com"
+            >
+                Me contacter
+            </a>
+
+            <a
+                class="header-link"
+                href="https://github.com/jessyandraina"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Mon profil GitHub
+            </a>
+        </div>
+    </div>
 </header>
 
-<section>
-    <h2>À propos</h2>
+<main>
+
+    <section>
+        <div class="section-heading">
+            <span class="section-number">01</span>
+            <h2>À propos</h2>
+        </div>
+
+        <div class="about-card">
+            <p class="about-highlight">
+                Ce que j’apprécie le plus en informatique, c’est le moment où une notion
+                apprise en cours devient une solution réellement utile.
+            </p>
+
+            <p>
+                J’aime apprendre en construisant : comprendre un besoin, chercher la bonne
+                approche, tester différentes idées, puis transformer mes connaissances en
+                un outil clair et fonctionnel. Chaque nouveau projet est pour moi une
+                occasion d’aller plus loin que la théorie et de développer de nouvelles
+                compétences de façon concrète.
+            </p>
+
+            <p>
+                Mon parcours en génie informatique m’a permis de travailler sur des projets
+                en développement logiciel, réseaux, bases de données, conception
+                d’interfaces et organisation de systèmes. J’accorde autant d’importance
+                au fonctionnement technique d’une solution qu’à sa simplicité
+                d’utilisation et à sa capacité à répondre à un besoin réel.
+            </p>
+
+            <div class="current-projects">
+                <strong>En ce moment :</strong> je conçois un site Web pour une entreprise
+                d’esthétique automobile afin de présenter ses services et de faciliter
+                les demandes de réservation. Je travaille également sur une plateforme
+                de vente en ligne. Ces projets personnels me permettent d’appliquer mes
+                apprentissages dans des contextes réels, d’échanger directement avec les
+                futurs utilisateurs et de prendre en charge les différentes étapes de
+                conception.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-heading">
+            <span class="section-number">02</span>
+            <h2>Projets académiques sélectionnés</h2>
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project">
+                <span class="project-tag">Développement mobile</span>
+
+                <h3>StudyWisely – Application Android</h3>
+
+                <p>
+                    Conception et développement d’une application de gestion de routines
+                    de révision avec Kotlin et Jetpack Compose, incluant la création des
+                    interfaces sur Figma, l’affichage dynamique des données et les tests
+                    fonctionnels.
+                </p>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/jessyadr/repo_8INF257_InfoMobile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Consulter le projet</span>
+                    <span>→</span>
+                </a>
+            </article>
+
+            <article class="project">
+                <span class="project-tag">Réseaux</span>
+
+                <h3>Protocole RDO – Java et TCP</h3>
+
+                <p>
+                    Implémentation d’un protocole client-serveur de transfert de fichiers
+                    avec gestion de la communication et de la redirection entre plusieurs
+                    serveurs pairs.
+                </p>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-reseaux-rdo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Consulter le projet</span>
+                    <span>→</span>
+                </a>
+            </article>
+
+            <article class="project">
+                <span class="project-tag">Architecture logicielle</span>
+
+                <h3>Comparateur de prix d’hôtels</h3>
+
+                <p>
+                    Développement d’une application Web structurée avec séparation du
+                    backend et du frontend, traitement des données et organisation
+                    modulaire du code.
+                </p>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-architecture-comparateur-hotels"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Consulter le projet</span>
+                    <span>→</span>
+                </a>
+            </article>
+
+            <article class="project">
+                <span class="project-tag">Bases de données</span>
+
+                <h3>Système de gestion d’événements</h3>
+
+                <p>
+                    Conception d’une base de données relationnelle comprenant la
+                    modélisation des données, les contraintes d’intégrité et la création
+                    de requêtes SQL avancées.
+                </p>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-bases-de-donnees-gestion-evenements"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Consulter le projet</span>
+                    <span>→</span>
+                </a>
+            </article>
+
+            <article class="project">
+                <span class="project-tag">Gestion de projet</span>
+
+                <h3>Outil de gestion de projets et suivi du temps</h3>
+
+                <p>
+                    Application Java combinant la gestion hiérarchique de projets et le
+                    suivi des heures, réalisée de façon collaborative dans le cadre de
+                    plusieurs sprints.
+                </p>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-outil-gestion-projets"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Consulter le projet</span>
+                    <span>→</span>
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
     <p>
-        Étudiante finissante en génie informatique à l'UQAC, je développe des applications structurées
-        en mettant l'accent sur l'architecture logicielle, la gestion des données et la conception de
-        systèmes maintenables.
+        © 2026 Antsanirina Jessy Andrianandraina ·
+        <a href="mailto:jessyy.andraina@gmail.com">
+            jessyy.andraina@gmail.com
+        </a>
     </p>
-
-    <p>
-        Actuellement, j'applique mes connaissances dans un projet personnel orienté
-        vers la conception d'un site web intégrant un système de réservation, afin
-        de répondre à un besoin réel.
-    </p>
-
-    <p>
-        Je souhaite intégrer un stage où je pourrai approfondir mes compétences,
-        évoluer dans un environnement professionnel structuré et contribuer
-        activement au développement de solutions logicielles.
-    </p>
-</section>
-
-<section>
-    <h2>Projets académiques sélectionnés</h2>
-
-    <div class="project">
-        <h3>Protocole RDO – Réseaux (Java, TCP)</h3>
-        <p>Implémentation d’un protocole client–serveur de transfert de fichiers avec gestion de redirection entre serveurs pairs.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-reseaux-rdo" target="_blank">Voir le projet →</a>
-    </div>
-
-    <div class="project">
-        <h3>Comparateur de prix d’hôtels – Architecture logicielle</h3>
-        <p>Application web structurée avec séparation backend/frontend et architecture modulaire.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-architecture-comparateur-hotels" target="_blank">Voir le projet →</a>
-    </div>
-
-    <div class="project">
-        <h3>Système de gestion d’événements – Bases de données</h3>
-        <p>Conception d’une base relationnelle avec modélisation, contraintes d’intégrité et requêtes SQL avancées.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-bases-de-donnees-gestion-evenements" target="_blank">Voir le projet →</a>
-    </div>
-
-    <div class="project">
-        <h3>Outil de gestion de projets et suivi du temps</h3>
-        <p>Application Java combinant gestion hiérarchique de projets et suivi des heures, développée en sprints.</p>
-        <a href="https://github.com/jessyandraina/projets-academiques/tree/main/projet-outil-gestion-projets" target="_blank">Voir le projet →</a>
-    </div>
-
-</section>
+</footer>
 
 </body>
 </html>
